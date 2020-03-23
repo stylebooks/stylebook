@@ -1,13 +1,19 @@
 {
-  "name": "root",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "demo": "lerna run start --scope=@stylebook/demo"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "^8.1.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.1.0",
     "lerna": "^3.20.2"
