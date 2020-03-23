@@ -5,7 +5,8 @@
   ],
   "scripts": {
     "commit": "git-cz",
-    "demo": "lerna run start --scope=@stylebook/demo"
+    "demo": "lerna run start --scope=@stylebook/demo",
+    "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.story.js,**/*.spec.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
