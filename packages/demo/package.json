@@ -1,5 +1,6 @@
 {
   "name": "@stylebook/demo",
+  "homepage": "https://alan-oliv.github.io/stylebook/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +12,8 @@
     "start": "react-scripts start",
     "storybook": "start-storybook -p 9009 -s public",
     "build:storybook": "build-storybook -s public -o dist",
-    "deploy:storybook": "storybook-to-ghpages --existing-output-dir=dist"
+    "deploy:storybook": "storybook-to-ghpages --existing-output-dir=dist",
+    "publish:storybook": "yarn build:storybook && yarn deploy:storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
