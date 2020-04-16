@@ -1,14 +1,11 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Build and Deploy
+name: demo build and deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
-    
+    branches: [master]
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,7 +18,7 @@ jobs:
       - name: install demo dependencies and build it 🔧
         run: |
           yarn
-          yarn build:storybook
+          yarn build:demo
 
       - name: deploy to github-pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3

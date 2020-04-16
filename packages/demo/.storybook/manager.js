@@ -4,7 +4,7 @@ import { addons } from '@storybook/addons';
 const test = create({
   base: 'light',
 
-  colorPrimary: 'hotpink',
+  colorPrimary: 'black',
   colorSecondary: 'deepskyblue',
 
   // UI
@@ -34,9 +34,9 @@ const test = create({
 
   brandTitle: 'My custom storybook',
   brandUrl: 'https://example.com',
-  brandImage: 'https://placehold.it/350x150'
+  brandImage: 'https://placehold.it/350x150',
 });
 
 addons.setConfig({
-  theme: test
+  theme: test,
 });
