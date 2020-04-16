@@ -1,6 +1,6 @@
 {
   "name": "@stylebook/demo",
-  "homepage": "https://alan-oliv.github.io/stylebook/",
+  "homepage": "https://stylebooks.github.io/stylebook/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
