@@ -13,8 +13,6 @@
     "start": "react-scripts start",
     "storybook": "start-storybook -p 9009 -s public",
     "build:storybook": "build-storybook -s public -o dist",
-    "deploy:storybook": "storybook-to-ghpages --existing-output-dir=dist",
-    "publish:storybook": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +36,5 @@
     "@storybook/addons": "^5.3.17",
     "@storybook/preset-create-react-app": "^2.1.0",
     "@storybook/react": "^5.3.17",
-    "gh-pages": "^2.2.0"
   }
 }

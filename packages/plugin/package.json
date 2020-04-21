@@ -2,7 +2,7 @@
   "name": "@stylebook/plugin",
   "private": true,
   "version": "1.0.0",
-  "main": "./src",
+  "main": "./dist",
   "license": "MIT",
   "description": "> TODO: description",
   "author": "alanoliv <alanbruno@gmail.com>",
