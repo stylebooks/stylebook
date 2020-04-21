@@ -1,3 +1,5 @@
-const plugin = () => {};
+import addons from '@storybook/addons';
 
-export default plugin;
+addons.register('StyleBook', (api) => {
+  console.log('stylebook registered');
+});
