@@ -1,7 +1,8 @@
 {
   "name": "@stylebook/plugin",
-  "version": "0.0.1",
-  "main": "index.js",
+  "private": true,
+  "version": "1.0.0",
+  "main": "./src",
   "license": "MIT",
   "description": "> TODO: description",
   "author": "alanoliv <alanbruno@gmail.com>",
@@ -18,5 +19,8 @@
   },
   "dependencies": {
     "@storybook/addons": "^5.3.18"
+  },
+  "scripts": {
+    "build": "babel ./src --out-dir dist"
   }
 }
