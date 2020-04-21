@@ -1,9 +1,10 @@
 {
   "name": "@stylebook/demo",
   "homepage": "https://stylebooks.github.io/stylebook/",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@stylebook/plugin": "1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.17",
     "@storybook/addon-links": "^5.3.17",
+    "@storybook/addon-viewport": "^5.3.18",
     "@storybook/addons": "^5.3.17",
     "@storybook/preset-create-react-app": "^2.1.0",
     "@storybook/react": "^5.3.17",
