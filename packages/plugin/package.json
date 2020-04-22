@@ -2,8 +2,8 @@
   "name": "@stylebook/plugin",
   "private": true,
   "version": "1.0.0",
-  "main": "./dist/cjs",
-  "module": "./dist/esm",
+  "main": "./src",
+  "module": "./src",
   "license": "MIT",
   "description": "> TODO: description",
   "author": "alanoliv <alanbruno@gmail.com>",
@@ -22,8 +22,12 @@
     "@storybook/addons": "^5.3.18"
   },
   "scripts": {
+    "dev": "concurrently \"yarn plugin:build:cjs -w\" \"yarn plugin:build:esm -w\"",
     "build": "yarn plugin:build:cjs && yarn plugin:build:esm",
     "plugin:build:cjs": "cross-env NODE_ENV=cjs babel ./src --out-dir dist/cjs",
     "plugin:build:esm": "cross-env NODE_ENV=esm babel ./src --out-dir dist/esm"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   }
 }

@@ -1,5 +1,3 @@
-import { addons } from '@storybook/addons';
+import register from './register';
 
-addons.register('StyleBook', (api) => {
-  console.log('stylebook registered');
-});
+export default register;
