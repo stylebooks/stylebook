@@ -21,6 +21,7 @@
     "@storybook/addons": "^5.3.18"
   },
   "scripts": {
-    "build": "babel ./src --out-dir dist"
+    "plugin:build:cjs": "cross-env NODE_ENV=cjs babel ./src --out-dir dist/cjs",
+    "plugin:build:esm": "cross-env NODE_ENV=esm babel ./src --out-dir dist/esm"
   }
 }
