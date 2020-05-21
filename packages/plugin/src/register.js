@@ -13,23 +13,18 @@ const MyPanel = () => {
   return <div>{item}</div>;
 };
 
-const register = () => {
-  console.log('registering addon');
-  addons.register(ADDON_ID, (api) => {
-    const render = ({ active, key }) => (
-      <AddonPanel active={active} key={key}>
-        <MyPanel />
-      </AddonPanel>
-    );
-    const title = 'My Addon';
+addons.register(ADDON_ID, (api) => {
+  const render = ({ active, key }) => (
+    <AddonPanel active={active} key={key}>
+      <MyPanel />
+    </AddonPanel>
+  );
+  const title = 'My Addon';
 
-    addons.add(PANEL_ID, {
-      type: types.PANEL,
-      title,
-      render,
-      paramKey: PARAM_KEY,
-    });
+  addons.add(PANEL_ID, {
+    type: types.PANEL,
+    title,
+    render,
+    paramKey: PARAM_KEY,
   });
-};
-
-export default register;
+});
