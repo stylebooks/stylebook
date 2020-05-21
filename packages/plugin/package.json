@@ -1,7 +1,6 @@
 {
   "name": "@stylebook/plugin",
-  "private": true,
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "./src/index.jsx",
   "license": "MIT",
   "description": "> TODO: description",
