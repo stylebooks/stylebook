@@ -1,7 +1,7 @@
 {
   "name": "@stylebook/plugin",
   "version": "0.0.1",
-  "main": "./src/index.jsx",
+  "main": "./src/index.js",
   "license": "MIT",
   "description": "> TODO: description",
   "author": "alanoliv <alanbruno@gmail.com>",
