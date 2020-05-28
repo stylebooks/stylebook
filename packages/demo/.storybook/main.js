@@ -1,4 +1,5 @@
+const { resolve } = require('path');
+
 module.exports = {
-  stories: ['../src/**/*.stories.js'],
-  addons: ['@stylebook/plugin'],
+  presets: [resolve('./.storybook/stylebook-preset')],
 };
