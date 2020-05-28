@@ -1,25 +1,21 @@
 import React from 'react';
 import { addons, types } from '@storybook/addons';
 import { AddonPanel } from '@storybook/components';
+import { ADDON_ID, PARAM_KEY, PANEL_ID, PANEL_TITLE } from './constants';
 
-const ADDON_ID = 'stylebookPanel';
-const PARAM_KEY = 'stylebookAddon';
-const PANEL_ID = `${ADDON_ID}/panel`;
-const PANEL_TITLE = 'Stylebook';
-
-const MyPanel = () => <div>stylebook panel</div>;
+const StylebookPanel = () => <div>stylebook panel</div>;
 
 addons.register(ADDON_ID, () => {
   const render = ({ active, key }) => (
     <AddonPanel active={active} key={key}>
-      <MyPanel />
+      <StylebookPanel />
     </AddonPanel>
   );
 
   addons.add(PANEL_ID, {
-    type: types.PANEL,
-    PANEL_TITLE,
     render,
+    type: types.PANEL,
+    title: PANEL_TITLE,
     paramKey: PARAM_KEY,
   });
 });

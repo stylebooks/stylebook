@@ -1,1 +1,1 @@
-import './dist/esm/register';
+import './src/register';
