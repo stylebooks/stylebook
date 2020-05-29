@@ -1,7 +1,7 @@
 {
   "name": "@stylebook/demo",
   "homepage": "https://stylebooks.github.io/stylebook/",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "@stylebook/plugin": "1.0.0",
