@@ -11,5 +11,4 @@ module.exports = {
     return config;
   },
   stories: ['../src/**/*.stories.js'],
-  addons: ['@stylebook/plugin'],
 };
