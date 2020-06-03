@@ -1,9 +1,9 @@
 {
-  "name": "@stylebook/plugin",
-  "version": "0.1.0",
-  "main": "./src/index.js",
+  "name": "@stylebook/addon",
+  "version": "0.0.1",
+  "main": "./src",
   "license": "MIT",
-  "description": "> TODO: description",
+  "description": "core addon package",
   "author": "alanoliv <alanbruno@gmail.com>",
   "homepage": "https://github.com/stylebooks/stylebook#readme",
   "publishConfig": {
@@ -20,10 +20,9 @@
     "@storybook/addons": "^5.3.18"
   },
   "scripts": {
-    "dev": "concurrently \"yarn plugin:build:cjs -w\" \"yarn plugin:build:esm -w\"",
     "build": "yarn plugin:build:cjs && yarn plugin:build:esm",
-    "plugin:build:cjs": "cross-env NODE_ENV=cjs babel ./src --out-dir dist/cjs",
-    "plugin:build:esm": "cross-env NODE_ENV=esm babel ./src --out-dir dist/esm"
+    "build:cjs": "cross-env NODE_ENV=cjs babel ./src --out-dir dist/cjs",
+    "build:esm": "cross-env NODE_ENV=esm babel ./src --out-dir dist/esm"
   },
   "devDependencies": {
     "concurrently": "^5.1.0"
