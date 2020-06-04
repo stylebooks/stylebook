@@ -7,6 +7,7 @@ const [, , buildFolder] = process.argv;
   const { publishConfig, scripts, main, ...jsonFile } = packageFile;
 
   Object.assign(jsonFile, {
+    private: false,
     main: './dist/cjs',
     module: './dist/esm',
   });
