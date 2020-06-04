@@ -4,7 +4,7 @@ const [, , buildFolder] = process.argv;
 
 (() => {
   const packageFile = require(resolve('./package.json'));
-  const { publishConfig, scripts, main, ...jsonFile } = packageFile;
+  const { main, scripts, ...jsonFile } = packageFile;
 
   Object.assign(jsonFile, {
     private: false,

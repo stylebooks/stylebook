@@ -29,5 +29,6 @@
   },
   "devDependencies": {
     "concurrently": "^5.1.0"
-  }
+  },
+  "gitHead": "24c0a7444028ee7cfe5bf8f757dd3a0e486105f5"
 }
