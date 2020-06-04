@@ -1,10 +1,10 @@
 {
   "name": "@stylebook/demo",
   "homepage": "https://stylebooks.github.io/stylebook/",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "dependencies": {
-    "@stylebook/addon": "0.0.1",
+    "@stylebook/addon": "^0.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
