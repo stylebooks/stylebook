@@ -12,7 +12,8 @@
   "scripts": {
     "start": "react-scripts start",
     "storybook": "start-storybook -p 9009 -s public",
-    "build": "build-storybook -s public -o dist"
+    "prebuild": "node ../../npm-scripts/prebuild.js ./build",
+    "build": "build-storybook -s public -o build"
   },
   "eslintConfig": {
     "extends": "react-app"
