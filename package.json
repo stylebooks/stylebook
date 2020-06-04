@@ -6,9 +6,7 @@
   "scripts": {
     "commit": "git-cz",
     "build": "lerna run build --stream --parallel",
-    "run:demo": "lerna run storybook --scope=@stylebook/demo",
-    "build:demo": "lerna run build:storybook --scope=@stylebook/demo --stream",
-    "publish:demo": "lerna run publish:storybook --scope=@stylebook/demo --stream"
+    "run:demo": "lerna run storybook --scope=@stylebook/demo"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

@@ -12,7 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "storybook": "start-storybook -p 9009 -s public",
-    "build:storybook": "build-storybook -s public -o dist"
+    "build": "build-storybook -s public -o dist"
   },
   "eslintConfig": {
     "extends": "react-app"
