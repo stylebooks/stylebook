@@ -10,7 +10,6 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
     "storybook": "start-storybook -p 9009 -s public",
     "prebuild": "node ../../npm-scripts/prebuild.js ./build",
     "build": "build-storybook -s public -o build"
