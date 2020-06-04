@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/stylebooks/stylebook/compare/@stylebook/demo@1.2.2...@stylebook/demo@1.2.3) (2020-06-04)
+
+**Note:** Version bump only for package @stylebook/demo
+
+
+
+
+
 ## [1.2.2](https://github.com/stylebooks/stylebook/compare/@stylebook/demo@1.2.1...@stylebook/demo@1.2.2) (2020-06-04)
 
 **Note:** Version bump only for package @stylebook/demo

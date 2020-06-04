@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/stylebooks/stylebook/compare/@stylebook/addon@0.1.0...@stylebook/addon@0.2.0) (2020-06-04)
+
+
+### Features
+
+* **again:** another test ([eff8982](https://github.com/stylebooks/stylebook/commit/eff89823f4d6ba00344e3bbbc45e4b7d7248027f))
+
+
+
+
+
 # [0.1.0](https://github.com/stylebooks/stylebook/compare/@stylebook/addon@0.0.2...@stylebook/addon@0.1.0) (2020-06-04)
 
 
