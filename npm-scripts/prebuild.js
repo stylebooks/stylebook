@@ -1,7 +1,6 @@
-const { resolve } = require('path');
-const { writeFileSync } = require('fs');
+const rimraf = require('rimraf');
 const [, , buildFolder] = process.argv;
 
 (() => {
-  console.log('buildFolder', buildFolder);
+  rimraf.sync(buildFolder);
 })(buildFolder);
