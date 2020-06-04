@@ -21,10 +21,11 @@
     "@storybook/addons": "^5.3.18"
   },
   "scripts": {
+    "prebuild": "node ../../npm-scripts/prebuild.js ./build",
     "build": "yarn build:cjs && yarn build:esm",
     "build:cjs": "cross-env NODE_ENV=cjs babel ./src --out-dir build/dist/cjs",
     "build:esm": "cross-env NODE_ENV=esm babel ./src --out-dir build/dist/esm",
-    "prepublishOnly": "node ../../npm-scripts/prepublishOnly.js ./build"
+    "postbuild": "node ../../npm-scripts/postbuild.js ./build"
   },
   "devDependencies": {
     "concurrently": "^5.1.0"
