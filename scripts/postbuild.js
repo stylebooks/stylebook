@@ -11,7 +11,6 @@ const [, , buildFolder] = process.argv;
     main: './dist/cjs',
     module: './dist/esm',
   });
-  //
 
   writeFileSync(`${buildFolder}/package.json`, JSON.stringify(jsonFile));
 })(buildFolder);
