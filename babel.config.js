@@ -9,5 +9,14 @@ module.exports = {
     cjs: {
       presets: ['@babel/preset-env', '@babel/preset-react'],
     },
+    register: {
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      plugins: [
+        [
+          'transform-rename-import',
+          { original: './src', replacement: './dist/cjs' },
+        ],
+      ],
+    },
   },
 };
