@@ -24,7 +24,7 @@
     "prebuild": "node ../../scripts/prebuild.js ./build",
     "build": "yarn build:cjs && yarn build:esm",
     "build:cjs": "cross-env NODE_ENV=cjs babel ./src --out-dir build/dist/cjs && yarn build:register",
-    "build:register": "cross-env NODE_ENV=register babel ./register.js --out-dir build",
+    "build:register": "cross-env NODE_ENV=reg babel ./register.js --out-dir build",
     "build:esm": "cross-env NODE_ENV=esm babel ./src --out-dir build/dist/esm",
     "postbuild": "node ../../scripts/postbuild.js ./build"
   },
