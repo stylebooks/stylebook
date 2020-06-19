@@ -1,6 +1,6 @@
-const rimraf = require('rimraf');
+const { clearBuild } = require('./tasks');
 const [, , buildFolder] = process.argv;
 
 (() => {
-  rimraf.sync(buildFolder);
-})(buildFolder);
+  clearBuild(buildFolder);
+})();
