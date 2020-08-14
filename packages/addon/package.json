@@ -17,9 +17,7 @@
   "bugs": {
     "url": "https://github.com/stylebooks/stylebook/issues"
   },
-  "dependencies": {
-    "@storybook/addons": "^5.3.18"
-  },
+  "dependencies": {},
   "scripts": {
     "prebuild": "node ../../scripts/prebuild.js ./build",
     "build": "yarn build:cjs && yarn build:esm",
