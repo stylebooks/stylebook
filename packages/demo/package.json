@@ -4,7 +4,8 @@
   "version": "1.2.3",
   "private": true,
   "dependencies": {
-    "@stylebook/addon": "^0.2.0",
+    "@stylebook/addon": "^1.2.0",
+    "@stylebook/themes": "1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"

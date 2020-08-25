@@ -1,6 +1,6 @@
 {
   "name": "@stylebook/addon",
-  "version": "0.2.0",
+  "version": "1.2.0",
   "main": "./src",
   "license": "MIT",
   "description": "core addon package",
