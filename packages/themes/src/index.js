@@ -1,3 +1,3 @@
 import PurpleRain from './PurpleRain';
 
-export default PurpleRain;
+export { PurpleRain };
