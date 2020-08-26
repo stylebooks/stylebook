@@ -17,7 +17,9 @@
   "bugs": {
     "url": "https://github.com/stylebooks/stylebook/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@stylebook/themes": "1.0.0"
+  },
   "scripts": {
     "prebuild": "node ../../scripts/prebuild.js ./build",
     "build": "yarn build:cjs && yarn build:esm",
