@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://b2f7ea21adc21465d9cb7637b650632c5cf80079@github.com/stylebooks/stylebook.git"
+    "url": "git+https://github.com/stylebooks/stylebook.git"
   },
   "bugs": {
     "url": "https://github.com/stylebooks/stylebook/issues"
