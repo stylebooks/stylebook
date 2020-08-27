@@ -1,0 +1,20 @@
+{
+  "name": "@stylebook/themes",
+  "version": "1.0.0",
+  "main": "./src",
+  "license": "MIT",
+  "description": "theme collection package",
+  "author": "alanoliv <alanbruno@gmail.com>",
+  "homepage": "https://github.com/stylebooks/stylebook#readme",
+  "publishConfig": {
+    "access": "public",
+    "directory": "build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stylebooks/stylebook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stylebooks/stylebook/issues"
+  }
+}
