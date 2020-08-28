@@ -3,8 +3,7 @@ import { makeDecorator } from '@storybook/addons';
 import { GlobalStyle } from '../components';
 
 const withStyleBook = makeDecorator({
-  name: 'withSomething',
-  parameterName: 'something',
+  name: 'withStyleBook',
   wrapper: (storyFn, context) => {
     return <GlobalStyle>{storyFn(context)}</GlobalStyle>;
   },
