@@ -1,29 +1,21 @@
+import { colors as tokenColors } from '../tokens';
+
 const colors = {
-  base: {
-    light: 'light',
-    dark: 'dark',
-  },
-  main: {
-    primary: '#303348',
-    secondary: '#171928',
-    background: '#1E2132',
-    border: '#5A5F86',
-    text: '#B1B5D5',
-    invertedText: '#171928',
-  },
-  preview: {
-    background: '#303348',
-  },
-  toolbar: {
-    background: '#303348',
-    text: '#B1B5D5',
-    selectedText: '#B452C8',
-  },
-  input: {
-    background: '#FFFFFF',
-    border: '#F4F4F4',
-    text: '#B1B5D5',
-  },
+  purple: ['#B1B5D5', '#5A5F86', '#303348', '#1E2132', '#171928'],
+  magenta: ['#B452C8'],
 };
 
-export default colors;
+[
+  colors.purple.lavender,
+  colors.purple.comet,
+  colors.purple.ebonyclay,
+  colors.purple.darkebonyclay,
+  colors.purple.mirage,
+] = colors.purple;
+
+[colors.magenta.amethyst] = colors.magenta;
+
+export default {
+  ...tokenColors,
+  ...colors,
+};

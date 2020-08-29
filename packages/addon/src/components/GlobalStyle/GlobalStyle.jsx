@@ -7,6 +7,8 @@ const GlobalStyles = ({ currentTheme, children }) => {
   const { fontBase, textColor } = themes[currentTheme];
 
   const styles = css`
+    @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
     body {
       font-family: ${fontBase};
       color: ${textColor};
