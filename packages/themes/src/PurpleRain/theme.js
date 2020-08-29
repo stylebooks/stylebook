@@ -1,31 +1,32 @@
 import { create } from '@storybook/theming/create';
-
+import { base, fonts, radii } from '../tokens';
 import colors from './colors';
-import { fonts, radii } from '../tokens';
+
+const { purple, gray } = colors;
 
 const theme = {
-  base: 'dark',
+  base: base.dark,
 
-  colorPrimary: colors.purple.darkebonyclay,
-  colorSecondary: colors.purple.mirage,
-  appBg: colors.purple.darkebonyclay,
-  appBorderColor: colors.purple.comet,
-  textColor: colors.purple.lavender,
-  textInverseColor: colors.purple.mirage,
+  colorPrimary: purple.darkebonyclay,
+  colorSecondary: purple.mirage,
+  appBg: purple.darkebonyclay,
+  appBorderColor: purple.comet,
+  textColor: purple.lavender,
+  textInverseColor: purple.mirage,
 
   fontBase: `${fonts.kronaone}, ${fonts.sansserif}`,
   fontCode: fonts.monospace,
 
-  appContentBg: colors.purple.ebonyclay,
+  appContentBg: purple.ebonyclay,
   appBorderRadius: radii.medium,
 
-  barTextColor: colors.purple.lavender,
-  barSelectedColor: colors.magenta.amethyst,
-  barBg: colors.purple.ebonyclay,
+  barTextColor: purple.lavender,
+  barSelectedColor: magenta.amethyst,
+  barBg: purple.ebonyclay,
 
-  inputBg: colors.gray.white,
-  inputBorder: colors.gray.silver,
-  inputTextColor: colors.purple.mirage,
+  inputBg: gray.white,
+  inputBorder: gray.silver,
+  inputTextColor: purple.mirage,
   inputBorderRadius: radii.medium,
 };
 
