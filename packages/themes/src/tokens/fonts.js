@@ -25,7 +25,7 @@ const fonts = {
   fonts.sansserif.rubik,
   fonts.sansserif.heebo,
   fonts.sansserif.worksans,
-] = fonts;
+] = fonts.sansserif;
 
 [
   fonts.monospace.firacode,
@@ -33,6 +33,6 @@ const fonts = {
   fonts.monospace.ibmplex,
   fonts.monospace.sourcecode,
   fonts.monospace.ptmono,
-] = fonts;
+] = fonts.monospace;
 
 export default fonts;
