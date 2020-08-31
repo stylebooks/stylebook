@@ -10,7 +10,7 @@ const theme = {
 
   appBg: blue.zircon.i900,
   appContentBg: blue.titanwhite.i900,
-  appBorderColor: blue.athensgrey.i400,
+  appBorderColor: blue.titanwhite.i800,
   appBorderRadius: radii.medium,
 
   fontBase: `${fonts.kronaone}, ${fonts.sansserif}`,
