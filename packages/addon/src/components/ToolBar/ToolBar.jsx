@@ -7,10 +7,11 @@ const ToolBar = ({ api }) => {
   const defaults = { mode: 'default', theme: 'StyleBook' };
   const { stylebook: { mode, theme } = defaults } = useGlobalTypes();
 
-  const setTheme = () =>
+  const setTheme = () => {
     api.setOptions({
       theme: themes[theme],
     });
+  };
 
   const components = {
     single: null,
@@ -19,7 +20,9 @@ const ToolBar = ({ api }) => {
     default: null,
   };
 
-  useEffect(() => mode.single && setTheme());
+  useEffect(() => {
+    mode === 'single' && setTheme();
+  });
 
   return components[mode];
 };

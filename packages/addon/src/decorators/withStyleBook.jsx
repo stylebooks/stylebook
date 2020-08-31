@@ -4,8 +4,18 @@ import { GlobalStyle } from '../components';
 
 const withStyleBook = makeDecorator({
   name: 'withStyleBook',
-  wrapper: (storyFn, context) => {
-    return <GlobalStyle>{storyFn(context)}</GlobalStyle>;
+  wrapper: (Story, context) => {
+    const {
+      parameters: {
+        globalTypes: {
+          stylebook: { theme: currentTheme },
+        },
+      },
+    } = context;
+
+    return (
+      <GlobalStyle currentTheme={currentTheme}>{Story(context)}</GlobalStyle>
+    );
   },
 });
 

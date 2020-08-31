@@ -1,39 +1,32 @@
 import { create } from '@storybook/theming/create';
+import { base, fonts, radii } from '../tokens';
+import { gray, blue } from '../tokens/colors';
 
-const PurpleRain = create({
-  base: 'light',
+const theme = {
+  base: base.dark,
 
-  colorPrimary: 'hotpink',
-  colorSecondary: 'deepskyblue',
+  colorPrimary: blue.zircon.i900,
+  colorSecondary: blue.darkzircon.i900,
 
-  // UI
-  appBg: 'white',
-  appContentBg: 'silver',
-  appBorderColor: 'grey',
-  appBorderRadius: 4,
+  appBg: blue.zircon.i900,
+  appContentBg: blue.titanwhite.i900,
+  appBorderColor: blue.titanwhite.i800,
+  appBorderRadius: radii.medium,
 
-  // Typography
-  fontBase: '"Open Sans", sans-serif',
-  fontCode: 'monospace',
+  fontBase: `${fonts.kronaone}, ${fonts.sansserif}`,
+  fontCode: fonts.monospace,
 
-  // Text colors
-  textColor: 'black',
-  textInverseColor: 'rgba(255,255,255,0.9)',
+  textColor: blue.snuff.i100,
+  textInverseColor: blue.snuff.i100,
 
-  // Toolbar default and active colors
-  barTextColor: 'silver',
-  barSelectedColor: 'black',
-  barBg: 'hotpink',
+  barTextColor: blue.snuff.i100,
+  barSelectedColor: blue.snuff.i100,
+  barBg: blue.titanwhite.i900,
 
-  // Form colors
-  inputBg: 'white',
-  inputBorder: 'silver',
-  inputTextColor: 'black',
-  inputBorderRadius: 4,
+  inputBg: gray.alabaster.i50,
+  inputBorder: gray.alabaster.i200,
+  inputTextColor: blue.snuff.i100,
+  inputBorderRadius: radii.medium,
+};
 
-  brandTitle: 'My custom storybook',
-  brandUrl: 'https://example.com',
-  brandImage: 'https://placehold.it/350x150',
-});
-
-export default PurpleRain;
+export default create(theme);
