@@ -13,7 +13,7 @@ const theme = {
   appBorderColor: blue.titanwhite.i800,
   appBorderRadius: radii.medium,
 
-  fontBase: fonts.sansserif.notosans,
+  fontBase: fonts.sansserif.rubik,
   fontCode: fonts.monospace.firacode,
 
   textColor: blue.snuff.i100,
