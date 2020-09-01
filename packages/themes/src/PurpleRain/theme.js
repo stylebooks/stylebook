@@ -13,8 +13,8 @@ const theme = {
   appBorderColor: blue.titanwhite.i800,
   appBorderRadius: radii.medium,
 
-  fontBase: `${fonts.kronaone}, ${fonts.sansserif}`,
-  fontCode: fonts.monospace,
+  fontBase: fonts.sansserif.rubik,
+  fontCode: fonts.monospace.firacode,
 
   textColor: blue.snuff.i100,
   textInverseColor: blue.snuff.i100,
