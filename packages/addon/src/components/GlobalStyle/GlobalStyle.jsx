@@ -1,11 +1,10 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 
-import * as themes from '@stylebook/themes';
-
 const GlobalStyles = ({ currentTheme, children }) => {
-  const { fontBase, fontCode, textColor } = themes[currentTheme];
+  const { fontBase, fontCode, textColor, appContentBg } = currentTheme;
   const urlFont = (font) => font.replace(/ /g, '+');
+  console.log('a');
 
   const styles = css`
     @import url('https://fonts.googleapis.com/css2?family=${urlFont(
@@ -15,6 +14,10 @@ const GlobalStyles = ({ currentTheme, children }) => {
     body {
       font-family: ${fontBase};
       color: ${textColor};
+    }
+
+    .sb-show-main {
+      background-color: ${appContentBg};
     }
   `;
 
