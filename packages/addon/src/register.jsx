@@ -1,10 +1,9 @@
 import React from 'react';
 import { addons, types } from '@storybook/addons';
 
+import listenChannel from './events';
 import { ADDON_ID, PANEL_ID } from './constants';
 import { ToolBar } from './components';
-
-import listenChannel from './events';
 
 addons.register(ADDON_ID, (api) => {
   const channel = addons.getChannel();

@@ -1,10 +1,8 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 
-import * as themes from '@stylebook/themes';
-
-const GlobalStyles = ({ currentTheme, children }) => {
-  const { fontBase, fontCode, textColor } = themes[currentTheme];
+const GlobalStyles = ({ currentTheme }) => {
+  const { fontBase, fontCode, textColor, appContentBg } = currentTheme;
   const urlFont = (font) => font.replace(/ /g, '+');
 
   const styles = css`
@@ -16,14 +14,13 @@ const GlobalStyles = ({ currentTheme, children }) => {
       font-family: ${fontBase};
       color: ${textColor};
     }
+
+    .sb-show-main {
+      background-color: ${appContentBg};
+    }
   `;
 
-  return (
-    <>
-      <Global styles={styles} />
-      {children}
-    </>
-  );
+  return <Global styles={styles} />;
 };
 
 export default GlobalStyles;

@@ -1,30 +1,34 @@
 import React, { useEffect } from 'react';
 import { useGlobalTypes } from '@storybook/api';
 
-import * as themes from '@stylebook/themes';
+const components = {
+  single: null,
+  toggle: <div>a</div>,
+  multi: <div>b</div>,
+};
 
 const ToolBar = ({ api }) => {
-  const defaults = { mode: 'default', theme: 'StyleBook' };
-  const { stylebook: { mode, theme } = defaults } = useGlobalTypes();
+  const { stylebook: { mode = 'single', theme, logo } = {} } = useGlobalTypes();
 
   const setTheme = () => {
+    if (logo) {
+      const { img, title, url } = logo;
+
+      theme.brandImage = img;
+      theme.brandTitle = title;
+      theme.brandUrl = url;
+    }
+
     api.setOptions({
-      theme: themes[theme],
+      theme: theme,
     });
   };
 
-  const components = {
-    single: null,
-    toggle: <div>a</div>,
-    multi: <div>b</div>,
-    default: null,
-  };
-
   useEffect(() => {
-    mode === 'single' && setTheme();
+    theme && mode === 'single' && setTheme();
   });
 
-  return components[mode];
+  return theme ? <>{components[mode]}</> : null;
 };
 
 export default ToolBar;
