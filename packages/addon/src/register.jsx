@@ -1,8 +1,7 @@
 import React from 'react';
 import { addons, types } from '@storybook/addons';
-
-import listenChannel from './events';
 import { ADDON_ID, PANEL_ID } from './constants';
+import { subscribe } from './events';
 import { ToolBar } from './components';
 
 addons.register(ADDON_ID, (api) => {
@@ -15,5 +14,5 @@ addons.register(ADDON_ID, (api) => {
     render: () => <ToolBar api={api} />,
   });
 
-  listenChannel(channel);
+  subscribe(channel);
 });

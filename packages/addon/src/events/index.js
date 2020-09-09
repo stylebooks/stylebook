@@ -1,3 +1,4 @@
-import listenChannel from './channel';
+import subscribe from './channel';
+import { handleGlobalStyle, renderSplash } from './events';
 
-export default listenChannel;
+export { subscribe, handleGlobalStyle, renderSplash };
