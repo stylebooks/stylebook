@@ -16,7 +16,7 @@ const withStyleBook = makeDecorator({
     return (
       <>
         <GlobalStyle currentTheme={currentTheme} />
-        {Story(context)}
+        <Story {...context} />
       </>
     );
   },

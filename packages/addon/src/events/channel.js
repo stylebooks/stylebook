@@ -1,8 +1,9 @@
 import { STORY_RENDERED } from '@storybook/core-events';
-import manageGlobals from './emotion';
+import { handleGlobalStyle, renderSplash } from '.';
 
-const listenChannel = (channel) => {
-  channel.once(STORY_RENDERED, () => manageGlobals());
+const subscribe = (channel) => {
+  renderSplash();
+  channel.once(STORY_RENDERED, () => handleGlobalStyle());
 };
 
-export default listenChannel;
+export default subscribe;
