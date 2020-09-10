@@ -10,9 +10,7 @@ const components = {
 
 const ThemeSwitcher = ({ api }) => {
   const channel = addons.getChannel();
-
-  const initialState = { mode, theme, logo, splash };
-  const [globalTypes, setGlobalTypes] = useState(initialState);
+  const [globalTypes, setGlobalTypes] = useState();
 
   channel.on(
     SET_STORIES,
@@ -22,34 +20,35 @@ const ThemeSwitcher = ({ api }) => {
       },
     }) => {
       setGlobalTypes(stylebook);
-      channel.emit('setGlobalTypes', stylebook);
     }
   );
 
-  const { mode = 'single', theme, logo, splash } = globalTypes;
-
   const setTheme = () => {
-    if (logo) {
-      const { img, title = 'Storybook', url = '/' } = logo;
-      theme.brandImage = img;
-      theme.brandTitle = title;
-      theme.brandUrl = url;
-    }
-
-    if (splash) {
-      theme.splash = splash;
-    }
+    const { mode = 'single', theme, logo = {}, splash } = globalTypes;
+    const {
+      src: brandImage,
+      title: brandTitle = 'Storybook',
+      url: brandUrl = '/',
+    } = logo;
 
     api.setOptions({
-      theme: theme,
+      theme: {
+        ...theme,
+        ...(logo.src && { brandImage }),
+        ...(logo.title && { brandTitle }),
+        ...(logo.url && { brandUrl }),
+      },
     });
+
+    channel.emit('setGlobalTypes', globalTypes);
   };
 
   useEffect(() => {
-    theme && mode === 'single' && setTheme();
+    // console.log(globalTypes);
+    globalTypes && globalTypes.mode === 'single' && setTheme();
   });
 
-  return globalTypes && <>{components[mode]}</>;
+  return globalTypes ? <></> : null;
 };
 
 export default ThemeSwitcher;

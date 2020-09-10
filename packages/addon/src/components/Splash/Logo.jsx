@@ -5,9 +5,9 @@ const CustomLogo = styled.img`
   max-width: 300px;
 `;
 
-const Logo = ({ textColor, splash }) =>
-  splash ? (
-    <CustomLogo src={splash.img} width={splash.width} />
+const Logo = ({ textColor, src, width }) =>
+  src ? (
+    <CustomLogo src={src} width={width} />
   ) : (
     <svg
       xmlns="http://www.w3.org/2000/svg"
