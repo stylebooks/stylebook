@@ -24,7 +24,7 @@ const ThemeSwitcher = ({ api }) => {
   );
 
   const setTheme = () => {
-    const { mode = 'single', theme, logo = {}, splash } = globalTypes;
+    const { theme, logo = {} } = globalTypes;
     const {
       src: brandImage,
       title: brandTitle = 'Storybook',
@@ -44,7 +44,6 @@ const ThemeSwitcher = ({ api }) => {
   };
 
   useEffect(() => {
-    // console.log(globalTypes);
     globalTypes && globalTypes.mode === 'single' && setTheme();
   });
 
