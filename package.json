@@ -8,7 +8,10 @@
     "build": "lerna run build --stream --parallel",
     "run:demo": "lerna run storybook --scope=@stylebook/demo",
     "lint": "eslint --ext js,jsx",
-    "lint:all": "yarn lint packages/addon"
+    "lint:addon": "yarn lint packages/addon",
+    "lint:themes": "yarn lint packages/themes",
+    "lint:demo": "yarn lint packages/demo",
+    "lint:all": "yarn lint packages"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
