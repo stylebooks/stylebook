@@ -20,7 +20,7 @@ const ThemeSwitcher = ({ api }) => {
       },
     }) => {
       setGlobalTypes(stylebook);
-    }
+    },
   );
 
   const setTheme = () => {

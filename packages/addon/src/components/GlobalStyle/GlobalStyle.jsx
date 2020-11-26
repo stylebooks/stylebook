@@ -7,7 +7,7 @@ const GlobalStyles = ({ currentTheme }) => {
 
   const styles = css`
     @import url('https://fonts.googleapis.com/css2?family=${urlFont(
-      fontBase
+      fontBase,
     )}&family=${urlFont(fontCode)}&display=swap');
 
     body {
