@@ -9,6 +9,8 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'import/no-extraneous-dependencies': 0,
+    'import/no-cycle': 0,
+    'react/jsx-props-no-spreading': 'off',
   },
   globals: {
     window: true,

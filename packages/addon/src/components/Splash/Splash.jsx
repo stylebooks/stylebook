@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { addons } from '@storybook/addons';
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
