@@ -6,7 +6,9 @@
   "scripts": {
     "commit": "git-cz",
     "build": "lerna run build --stream --parallel",
-    "run:demo": "lerna run storybook --scope=@stylebook/demo"
+    "run:demo": "lerna run storybook --scope=@stylebook/demo",
+    "lint": "eslint --ext js,jsx",
+    "lint:all": "yarn lint packages/addon"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -26,7 +28,15 @@
     "commitizen": "^4.0.3",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
     "lerna": "^3.20.2",
+    "prettier": "^2.2.0",
     "rimraf": "^3.0.2"
   },
   "config": {

@@ -15,9 +15,6 @@
     "prebuild": "node ../../scripts/prebuild.js ./build",
     "build": "build-storybook -s public -o build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
