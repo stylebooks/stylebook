@@ -1,3 +1,3 @@
 import withShades from './withShades';
 
-export { withShades };
+export default withShades;

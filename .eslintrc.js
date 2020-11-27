@@ -11,6 +11,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'import/no-cycle': 0,
     'react/jsx-props-no-spreading': 'off',
+    'no-param-reassign': 'off',
   },
   globals: {
     window: true,
