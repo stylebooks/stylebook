@@ -1,4 +1,4 @@
-import { withShades } from '../../hoc';
+import withShades from '../../hoc';
 
 const gray = {
   alabaster: [

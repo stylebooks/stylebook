@@ -15,7 +15,9 @@ const withShades = (colors) => {
   Object.values(colors)
     .sort((a, b) => a - b)
     .forEach((tokenList) =>
-      tokenList.forEach((color, index) => (tokenList[shades[index]] = color))
+      tokenList.forEach((color, index) => {
+        tokenList[shades[index]] = color;
+      }),
     );
 
   return colors;

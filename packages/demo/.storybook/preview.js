@@ -1,5 +1,5 @@
 import { addDecorator } from '@storybook/react';
-import { PurpleRain } from '@stylebook/themes';
+import PurpleRain from '@stylebook/themes';
 
 import withStyleBook from '@stylebook/addon';
 

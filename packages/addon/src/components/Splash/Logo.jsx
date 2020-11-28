@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number } from 'prop-types';
 import styled from '@emotion/styled';
 
 const CustomLogo = styled.img`
@@ -39,5 +40,11 @@ const Logo = ({ textColor, src, width }) =>
       </g>
     </svg>
   );
+
+Logo.propTypes = {
+  textColor: string.isRequired,
+  src: string.isRequired,
+  width: number.isRequired,
+};
 
 export default Logo;

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { shape, func } from 'prop-types';
 import { addons } from '@storybook/addons';
 import { SET_STORIES } from '@storybook/core-events';
 
-const components = {
-  single: null,
-  toggle: <div>toggle component</div>,
-  multi: <div>multi component</div>,
-};
+// const components = {
+//   single: null,
+//   toggle: <div>toggle component</div>,
+//   multi: <div>multi component</div>,
+// };
 
 const ThemeSwitcher = ({ api }) => {
   const channel = addons.getChannel();
@@ -20,7 +21,7 @@ const ThemeSwitcher = ({ api }) => {
       },
     }) => {
       setGlobalTypes(stylebook);
-    }
+    },
   );
 
   const setTheme = () => {
@@ -43,11 +44,18 @@ const ThemeSwitcher = ({ api }) => {
     channel.emit('setGlobalTypes', globalTypes);
   };
 
-  useEffect(() => {
+  const initToolBar = () =>
     globalTypes && globalTypes.mode === 'single' && setTheme();
-  });
+
+  useEffect(() => initToolBar());
 
   return globalTypes ? <></> : null;
+};
+
+ThemeSwitcher.propTypes = {
+  api: shape({
+    setOptions: func,
+  }).isRequired,
 };
 
 export default ThemeSwitcher;

@@ -10,6 +10,6 @@ module.exports = {
     config.resolve.extensions.push('.js', '.jsx');
     return config;
   },
-  stories: ['../src/**/*.stories.js'],
+  stories: ['../src/**/*.stories.jsx'],
   addons: ['@stylebook/addon'],
 };

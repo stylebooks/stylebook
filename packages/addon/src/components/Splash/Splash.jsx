@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { addons } from '@storybook/addons';
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -23,8 +23,7 @@ const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background-color: ${({ background }) =>
-    background ? background : '#FFFFFF'};
+  background-color: ${({ background }) => background || '#FFFFFF'};
   z-index: 2;
 
   animation: ${fadeOut} 0.5s 1 1.5s alternate both;
