@@ -7,7 +7,12 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'import/no-extraneous-dependencies': 0,
     'import/no-cycle': 0,
     'react/jsx-props-no-spreading': 'off',
