@@ -2,105 +2,190 @@
 ![Last commit](https://img.shields.io/github/last-commit/stylebooks/stylebook.svg?style=flat-square&color=blueviolet)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square&color=ff69b4)](http://commitizen.github.io/cz-cli)
 
-## Motivations
+## Motivation
 
-Stylebook is a [Storybook](https://storybook.js.org/) addon.
-Stylebook adds endless possibilities and all kind of UI customizations, making [Storybook](https://storybook.js.org/) more dinamyc as style-guides use-cases, for instance.
+Stylebook is a [Storybook](https://storybook.js.org/) addon that makes easier customizing you storybook!
+This addon uses storybook global themification API to expose an incredible collection of complex themes created from unique color palettes, it also adds special themification features like:
 
-> Before we begin, we need to learn a bit about how Storybook works.
+- Splash screen
+- Toggle themes (light and dark)
+- Multiple themes
 
-Basically, Storybook has a Manager App and a Preview Area.
-Manager App is the client side UI for Storybook. Preview Area is the place where the story is rendered. Usually the Preview Area is an iframe.
-
-With that being said, Storybook doesn't have many options for customizing the Manager app (other than manager_head.html), such as putting a custom company logo or styling the search input as wish, as well the list-items for stories itself.
-<br /><br />
-Stylebooks allows you using a [React component](https://reactjs.org/docs/react-component.html) as the manager app and customizing it as you wish.<br />
-Since this is a early-stage addon project, Stylebook only supoorts [React](https://reactjs.org/) for now, We hope to add support for other frameworks soon.
+See [usage](#usage) and [options](#options) below and see how to configure each one of these options, it's one line configuration code! EASY PEASY!
 
 ## Getting started
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Contributors](#contributors)
-- [License](#license)
+- 💻 [Installation](#installation)
+- 🎯 [Usage](#usage)
+- ⚙️ [Options](#options)
+- 🤓 [License](#license)
 
-## Installation
+## 💻 Installation
 
-First of all, you need to install Stylebook into your project as a dev dependency.
+First of all, install Stylebook packages in your project as dev dependencies.
+You'll need two packages, one for the addon and one for the themes.
 
 ```sh
-yarn add -D @stylebook/core
+yarn add -D @stylebook/addon @stylebook/themes
 ```
 
-Then, register it as an addon by adding it to your `addons.js` file (located in the .storybook directory).
+## 🎯 Usage
+
+### Configure your storybook
+
+The main configuration file is `main.js` (inside .storybook folder). This file controls the behaviour of the Storybook server (so you must restart Storybook’s process when you change it) and it's where you list the addons you are using, this is called 'registering an addon'.
 
 ```js
-import '@stylebook/core/register';
+// .storybook/main.js
+
+module.exports = {
+  stories: ['../src/**/*.stories.@(js|mdx)'],
+  addons: ['@stylebook/addon'],
+};
 ```
 
-## Configuration
+### Configure your theme
 
-Import and add the decorator `withManager` to your `config.js` file (located in the .storybook directory as well).
-You' ll need to import the StoriesProvider component too, this is the wrapper components for a custom manager, it'll provide the stories array for you.
-
-```js
-import { withManager } from '@stylebook/core/decorators';
-import { StoriesProvider } from '@stylebook/core/components';
-```
-
-## Usage
-
-You are almost ready to go: with the addon imports now you can create your own manager component wrapped by `StoriesProvider` that will provide the stories for you! The sky is the limit!
+The addon config file is `preview.js` (inside .storybook folder too). This file allows you to add configuration parameters or decorators to an addon, in our sample case will look like this:
 
 ```js
-// load stories
-const req = require.context('../stories', true, /\.stories\.jsx$/);
-function loadStories() {
-  req.keys().forEach((filename) => req(filename));
-}
+import { addDecorator } from '@storybook/react';
 
-// create a new custom manager
-// you can use your own react component or icons - whatever you like!
-const newManager = (
-  <StoriesProvider>
-    {(stories) => (
-      <ul>
-        {stories.map((story) => (
-          <li key={story.kind}>
-            <span>{story.kind}</span>
-            <ul>
-              {story.stories.map((substory) => (
-                <li key={substory.name}>
-                  <button onClick={linkTo(story.kind, substory.name)}>
-                    {substory.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-    )}
-  </StoriesProvider>
-);
+// import addon and the chosen theme packages from installed packages
+import withStyleBook from '@stylebook/addon';
+import PurpleRain from '@stylebook/themes';
 
-const options = {
-  component: newManager,
+// define the globalTypes addon decorator configuration
+export const globalTypes = {
+  stylebook: {
+    mode: 'single',
+    theme: PurpleRain,
+  },
 };
 
-// pass the new manager for stylebook addon
-addDecorator(withManager(options));
-// finish storybook configuration
-configure(loadStories, module);
+// add the stylebook addon decorator
+addDecorator(withStyleBook);
 ```
 
-## Contributors
+Easy, huh?
 
-<table><tr><td align="center"><a href="#"><img src="https://avatars1.githubusercontent.com/u/4368481?s=460&v=4" width="100px;" alt="Alan Oliveira"/><br /><sub><b>Alan Oliveira</b></sub></a><br /><a href="https://github.com/stylebooks/stylebook/commits?author=alan-oliv" title="Documentation">📖</a> <a href="https://github.com/stylebooks/stylebook/commits?author=alan-oliv" title="Code">💻</a> <a href="#ideas-alan-oliv" title="Ideas, Planning, & Feedback">🤔</a> <a href="#review-alan-oliv" title="Reviewed Pull Requests">👀</a></td></tr></table>
+## ⚙️ Options
+
+Stylebook brings cool features that you can enable! Check it out:
+
+### Available Options
+
+| Name     | Type   | Required | Description                                                                    | Default  |
+| -------- | ------ | -------- | ------------------------------------------------------------------------------ | -------- |
+| `mode`   | String | false    | Defines how stylebook will handle one or multiple themes in storybook toolbar. | `single` |
+| `theme`  | Theme  | true     | The theme or themes you want to set.                                           | -        |
+| `splash` | Object | false    | Splash screen options.                                                         | -        |
+| `logo`   | Object | false    | Logo options for showing in the manager bar.                                   | -        |
+
+#### Mode
+
+Mode defines how Stylebook will handle one or multiple themes in Storybook's toolbar, there are 3 options available:
+
+| Name     | Description                                                                                                                 | Themes    |
+| -------- | --------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `single` | If you want to use only one theme for the doc, this is the option for you. This doesn't add options at storybook's toolbar. | 1         |
+| `toggle` | Enables a toggle button in toolbar that allows you to toggle between two themes (usually light and dark).                   | 2         |
+| `multi`  | Enable multi-theme dropdown in toolbar allowing the user choose one of them.                                                | 3 or more |
+
+#### Theme
+
+This option is responsible for setting the chosen theme for your storybook.
+This one is simple, if you choose mode `single` you just have to pass your imported theme, if you choose `toggle` or `multi` pass your theme as an array, like this:
+
+```js
+import { addDecorator } from '@storybook/react';
+
+// import addon and the chosen theme packages from installed packages
+import withStyleBook from '@stylebook/addon';
+import { Theme1, Theme2 } from '@stylebook/themes';
+
+// define the globalTypes addon decorator configuration
+export const globalTypes = {
+  stylebook: {
+    mode: 'toggle',
+    theme: [Theme1, Theme2],
+  },
+};
+
+// add the stylebook addon decorator
+addDecorator(withStyleBook);
+```
+
+#### Splash
+
+When enabled, this option shows a splash screen with a custom image when the storybook starts (fancy!)
+
+| Name    | Type   | Required | Description                              |
+| ------- | ------ | -------- | ---------------------------------------- |
+| `src`   | String | true     | Image path for you logo or custom image. |
+| `width` | Number | true     | The theme or themes you want to set.     |
+
+See that sample below:
+
+```js
+import { addDecorator } from '@storybook/react';
+
+import PurpleRain from '@stylebook/themes';
+import withStyleBook from '@stylebook/addon';
+
+export const globalTypes = {
+  stylebook: {
+    mode: 'single',
+    theme: PurpleRain,
+    splash: {
+      src: 'https://placehold.it/350x150',
+      width: 200,
+    },
+  },
+};
+
+addDecorator(withStyleBook);
+```
+
+#### Logo
+
+If you want to use your company logo on the left bar, now it's easier, just pass the logo option with the listed fields below:
+
+| Name    | Type   | Required | Description                                                            |
+| ------- | ------ | -------- | ---------------------------------------------------------------------- |
+| `src`   | String | true     | Image path for you logo or custom image.                               |
+| `title` | Number | true     | This is your image title, will be used as `alt` on `img` tag.          |
+| `url`   | Number | true     | Specifies the URL of the page the link goes to when clicking the logo. |
+
+You can combine the `logo` option with the `splash` option:
+
+```js
+import { addDecorator } from '@storybook/react';
+
+import PurpleRain from '@stylebook/themes';
+import withStyleBook from '@stylebook/addon';
+
+export const globalTypes = {
+  stylebook: {
+    mode: 'single',
+    theme: PurpleRain,
+    logo: {
+      src: 'https://placehold.it/350x150',
+      title: 'stylebook',
+      url: '/',
+    },
+    splash: {
+      src: 'https://placehold.it/350x150',
+      width: 200,
+    },
+  },
+};
+
+addDecorator(withStyleBook);
+```
 
 ---
 
-## License
+## 🤓 License
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
