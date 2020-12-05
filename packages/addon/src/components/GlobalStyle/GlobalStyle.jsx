@@ -20,6 +20,14 @@ const GlobalStyles = ({ currentTheme }) => {
     .sb-show-main {
       background-color: ${appContentBg};
     }
+
+    .sidebar-item {
+      svg {
+        path {
+          fill: ${textColor};
+        }
+      }
+    }
   `;
 
   return <Global styles={styles} />;
