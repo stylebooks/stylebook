@@ -1,3 +1,4 @@
 import PurpleRain from './PurpleRain';
+import DarkKnight from './DarkKnight';
 
-export default PurpleRain;
+export { PurpleRain, DarkKnight };
