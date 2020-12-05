@@ -10,9 +10,9 @@ const theme = {
   appBg: colors.darker,
 
   appContentBg: colors.hue,
-  barBg: colors.hue,
+  barBg: colors.darker,
 
-  appBorderColor: colors.lighter,
+  appBorderColor: colors.darker,
   textColor: colors.lightest,
   textInverseColor: colors.lightest,
   barTextColor: colors.lightest,
