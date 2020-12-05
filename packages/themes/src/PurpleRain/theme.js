@@ -1,31 +1,32 @@
 import { create } from '@storybook/theming/create';
 import { base, fonts, radii } from '../tokens';
-import { gray, blue } from '../tokens/colors';
+import colors from './colors';
 
 const theme = {
   base: base.dark,
 
-  colorPrimary: blue.zircon.i900,
-  colorSecondary: blue.darkzircon.i900,
+  colorSecondary: colors.darkest,
+  colorPrimary: colors.darker,
+  appBg: colors.darker,
 
-  appBg: blue.zircon.i900,
-  appContentBg: blue.titanwhite.i900,
-  appBorderColor: blue.titanwhite.i800,
+  appContentBg: colors.hue,
+  barBg: colors.hue,
+
+  appBorderColor: colors.lighter,
+  textColor: colors.lightest,
+  textInverseColor: colors.lightest,
+  barTextColor: colors.lightest,
+  barSelectedColor: colors.lightest,
+  inputTextColor: colors.lightest,
+
+  inputBg: colors.white,
+  inputBorder: colors.white,
+
   appBorderRadius: radii.medium,
 
   fontBase: fonts.sansserif.rubik,
   fontCode: fonts.monospace.firacode,
 
-  textColor: blue.snuff.i100,
-  textInverseColor: blue.snuff.i100,
-
-  barTextColor: blue.snuff.i100,
-  barSelectedColor: blue.snuff.i100,
-  barBg: blue.titanwhite.i900,
-
-  inputBg: gray.alabaster.i50,
-  inputBorder: gray.alabaster.i200,
-  inputTextColor: blue.snuff.i100,
   inputBorderRadius: radii.medium,
 };
 
