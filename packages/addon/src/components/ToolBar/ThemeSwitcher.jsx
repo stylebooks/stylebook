@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { shape, func } from 'prop-types';
 import { addons } from '@storybook/addons';
 import { SET_STORIES } from '@storybook/core-events';
+import { MODES } from '../../constants';
 
-// const components = {
-//   single: null,
-//   toggle: <div>toggle component</div>,
-//   multi: <div>multi component</div>,
-// };
+const components = {
+  single: <div>single component</div>,
+  toggle: <div>toggle component</div>,
+  multi: <div>multi component</div>,
+};
 
 const ThemeSwitcher = ({ api }) => {
   const channel = addons.getChannel();
@@ -20,36 +21,24 @@ const ThemeSwitcher = ({ api }) => {
         globalTypes: { stylebook },
       },
     }) => {
-      setGlobalTypes(stylebook);
+      const {
+        themes: {
+          length,
+          themeCount = length < 3 ? length : 3,
+          mode = MODES[themeCount - 1],
+        },
+      } = stylebook;
+
+      const stylebookGlobals = {
+        ...stylebook,
+        mode,
+      };
+
+      setGlobalTypes(stylebookGlobals);
     },
   );
 
-  const setTheme = () => {
-    const { theme, logo = {} } = globalTypes;
-    const {
-      src: brandImage,
-      title: brandTitle = 'Storybook',
-      url: brandUrl = '/',
-    } = logo;
-
-    api.setOptions({
-      theme: {
-        ...theme,
-        ...(logo.src && { brandImage }),
-        ...(logo.title && { brandTitle }),
-        ...(logo.url && { brandUrl }),
-      },
-    });
-
-    channel.emit('setGlobalTypes', globalTypes);
-  };
-
-  const initToolBar = () =>
-    globalTypes && globalTypes.mode === 'single' && setTheme();
-
-  useEffect(() => initToolBar());
-
-  return globalTypes ? <></> : null;
+  return globalTypes ? components[globalTypes.mode] : null;
 };
 
 ThemeSwitcher.propTypes = {
