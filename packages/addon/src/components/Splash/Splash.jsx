@@ -31,17 +31,19 @@ const Overlay = styled.div`
 
 const Splash = () => {
   const channel = addons.getChannel();
-
   const [config, setConfig] = useState({});
+
   const [splashRender, toggleSplashRender] = useState(true);
   const {
-    theme: { appBg, textColor } = {},
+    themes = [],
+    theme = themes[0],
     splash: { src, width } = {},
   } = config;
+  const { appBg, textColor } = theme || {};
 
   channel.on('setGlobalTypes', (params) => setConfig(params));
 
-  return splashRender ? (
+  return config && splashRender ? (
     <Overlay
       background={appBg}
       onAnimationEnd={() => toggleSplashRender(false)}

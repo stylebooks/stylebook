@@ -38,6 +38,28 @@ const ThemeSwitcher = ({ api }) => {
     },
   );
 
+  const setTheme = () => {
+    const { themes, theme = themes[0], logo = {} } = globalTypes;
+    const {
+      src: brandImage,
+      title: brandTitle = 'Storybook',
+      url: brandUrl = '/',
+    } = logo;
+
+    api.setOptions({
+      theme: {
+        ...theme,
+        ...(logo.src && { brandImage }),
+        ...(logo.title && { brandTitle }),
+        ...(logo.url && { brandUrl }),
+      },
+    });
+
+    channel.emit('setGlobalTypes', globalTypes);
+  };
+
+  useEffect(() => globalTypes && setTheme());
+
   return globalTypes ? components[globalTypes.mode] : null;
 };
 

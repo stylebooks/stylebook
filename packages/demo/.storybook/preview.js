@@ -5,7 +5,7 @@ import withStyleBook from '@stylebook/addon';
 
 export const globalTypes = {
   stylebook: {
-    themes: [PurpleRain],
+    themes: [PurpleRain, DarkKnight],
     logo: {
       src: 'https://placehold.it/350x150',
       title: 'stylebook',
