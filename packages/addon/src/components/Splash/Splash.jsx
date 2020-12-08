@@ -48,7 +48,7 @@ const Splash = () => {
       background={appBg}
       onAnimationEnd={() => toggleSplashRender(false)}
     >
-      {appBg && <Logo textColor={textColor} src={src} width={width} />}
+      {appBg && src && <Logo textColor={textColor} src={src} width={width} />}
     </Overlay>
   ) : (
     false

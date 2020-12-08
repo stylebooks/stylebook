@@ -4,9 +4,11 @@ import { addons } from '@storybook/addons';
 import { SET_STORIES } from '@storybook/core-events';
 import { MODES } from '../../constants';
 
+import Switch from './Switch';
+
 const components = {
   single: <div>single component</div>,
-  toggle: <div>toggle component</div>,
+  toggle: <Switch />,
   multi: <div>multi component</div>,
 };
 
