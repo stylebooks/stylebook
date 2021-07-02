@@ -7,7 +7,7 @@ import { MODES } from '../../constants';
 import Switch from './Switch';
 
 const components = {
-  single: <div>single component</div>,
+  single: null,
   toggle: <Switch />,
   multi: <div>multi component</div>,
 };

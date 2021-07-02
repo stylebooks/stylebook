@@ -5,7 +5,7 @@ import withStyleBook from '@stylebook/addon';
 
 export const globalTypes = {
   stylebook: {
-    themes: [DarkKnight, PurpleRain],
+    themes: [DarkKnight],
   },
 };
 
