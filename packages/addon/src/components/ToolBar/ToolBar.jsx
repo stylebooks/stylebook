@@ -1,10 +1,10 @@
 import React from 'react';
-import ThemeSwitcher from './ThemeSwitcher';
+import Themifier from './Themifier';
 import ToolbarContext from './ToolbarContext';
 
 const ToolBar = (api) => (
   <ToolbarContext.Provider value={api}>
-    <ThemeSwitcher />
+    <Themifier />
   </ToolbarContext.Provider>
 );
 

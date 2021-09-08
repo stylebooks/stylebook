@@ -1,16 +1,10 @@
 import React, { useEffect, useContext } from 'react';
 import { useGlobals } from '@storybook/api';
 
-import Switch from './Switch';
-import ToolbarContext from './ToolbarContext';
+import ToolbarContext from '../ToolbarContext';
+import ThemeSwitcher from './ThemeSwitcher';
 
-const ThemeComponent = ({
-  config: {
-    themes: { length },
-  },
-}) => (length > 1 ? <Switch /> : null);
-
-const ThemeSwitcher = () => {
+const Themifier = () => {
   const { api } = useContext(ToolbarContext);
 
   const [globals] = useGlobals();
@@ -33,13 +27,12 @@ const ThemeSwitcher = () => {
         ...(logo.url && { brandUrl }),
       },
     });
-
     // channel.emit('setGlobalTypes', config);
   };
 
   useEffect(() => stylebook && setTheme(stylebook));
 
-  return stylebook ? <ThemeComponent config={stylebook} /> : null;
+  return stylebook ? <ThemeSwitcher config={stylebook} /> : null;
 };
 
-export default ThemeSwitcher;
+export default Themifier;
