@@ -4,6 +4,7 @@
     "packages/*"
   ],
   "scripts": {
+    "clean": "lerna clean",
     "commit": "git-cz",
     "build": "lerna run build --stream --parallel",
     "run:demo": "lerna run storybook --scope=@stylebook/demo --stream",
