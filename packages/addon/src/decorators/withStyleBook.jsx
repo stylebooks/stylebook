@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeDecorator } from '@storybook/addons';
 import { GlobalStyle } from '../components';
+import { globalTypes } from '../../../demo/.storybook/preview';
 
 const withStyleBook = makeDecorator({
   name: 'withStyleBook',
@@ -8,7 +9,9 @@ const withStyleBook = makeDecorator({
     const {
       parameters: {
         globalTypes: {
-          stylebook: { themes, currentTheme = themes[0] },
+          stylebook: {
+            defaultValue: { themes, currentTheme = themes[0] },
+          },
         },
       },
     } = context;

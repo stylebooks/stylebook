@@ -1,47 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { shape, func } from 'prop-types';
-import { addons } from '@storybook/addons';
-import { SET_STORIES } from '@storybook/core-events';
-import { MODES } from '../../constants';
+import React, { useEffect, useContext } from 'react';
+import { useGlobals } from '@storybook/api';
 
 import Switch from './Switch';
+import ToolbarContext from './ToolbarContext';
 
-const components = {
-  single: <div>single component</div>,
-  toggle: <Switch />,
-  multi: <div>multi component</div>,
-};
+const ThemeComponent = ({
+  config: {
+    themes: { length },
+  },
+}) => (length > 1 ? <Switch /> : null);
 
-const ThemeSwitcher = ({ api }) => {
-  const channel = addons.getChannel();
-  const [globalTypes, setGlobalTypes] = useState();
+const ThemeSwitcher = () => {
+  const { api } = useContext(ToolbarContext);
 
-  channel.on(
-    SET_STORIES,
-    ({
-      globalParameters: {
-        globalTypes: { stylebook },
-      },
-    }) => {
-      const {
-        themes: {
-          length,
-          themeCount = length < 3 ? length : 3,
-          mode = MODES[themeCount - 1],
-        },
-      } = stylebook;
+  const [globals] = useGlobals();
+  const { stylebook } = globals;
 
-      const stylebookGlobals = {
-        ...stylebook,
-        mode,
-      };
+  const setTheme = (config) => {
+    const { themes, theme = themes[0], logo = {} } = config;
 
-      setGlobalTypes(stylebookGlobals);
-    },
-  );
-
-  const setTheme = () => {
-    const { themes, theme = themes[0], logo = {} } = globalTypes;
     const {
       src: brandImage,
       title: brandTitle = 'Storybook',
@@ -57,18 +34,12 @@ const ThemeSwitcher = ({ api }) => {
       },
     });
 
-    channel.emit('setGlobalTypes', globalTypes);
+    // channel.emit('setGlobalTypes', config);
   };
 
-  useEffect(() => globalTypes && setTheme());
+  useEffect(() => stylebook && setTheme(stylebook));
 
-  return globalTypes ? components[globalTypes.mode] : null;
-};
-
-ThemeSwitcher.propTypes = {
-  api: shape({
-    setOptions: func,
-  }).isRequired,
+  return stylebook ? <ThemeComponent config={stylebook} /> : null;
 };
 
 export default ThemeSwitcher;
