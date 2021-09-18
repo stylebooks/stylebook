@@ -8,7 +8,9 @@ const withStyleBook = makeDecorator({
     const {
       parameters: {
         globalTypes: {
-          stylebook: { themes, currentTheme = themes[0] },
+          stylebook: {
+            defaultValue: { themes, currentTheme = themes[0] },
+          },
         },
       },
     } = context;

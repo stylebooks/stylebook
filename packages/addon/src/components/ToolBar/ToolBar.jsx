@@ -1,11 +1,11 @@
-import React, { memo } from 'react';
-import { shape } from 'prop-types';
-import ThemeSwitcher from './ThemeSwitcher';
+import React from 'react';
+import Themifier from './Themifier';
+import ToolbarContext from './ToolbarContext';
 
-const ToolBar = ({ api }) => <ThemeSwitcher api={api} />;
+const ToolBar = (api) => (
+  <ToolbarContext.Provider value={api}>
+    <Themifier />
+  </ToolbarContext.Provider>
+);
 
-ToolBar.propTypes = {
-  api: shape({}).isRequired,
-};
-
-export default memo(ToolBar);
+export default ToolBar;
