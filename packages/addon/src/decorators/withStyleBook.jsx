@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeDecorator } from '@storybook/addons';
 import { GlobalStyle } from '../components';
-import { globalTypes } from '../../../demo/.storybook/preview';
 
 const withStyleBook = makeDecorator({
   name: 'withStyleBook',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
@@ -21,7 +21,7 @@ const Base = styled.div`
 `;
 
 const LightSwitch = styled.div`
-  ${({ lightsOn }) => lightsOn && `transform: translate(14px);`}
+  ${({ dark }) => dark && `transform: translate(14px);`}
 
   height: 12px;
   width: 12px;
@@ -33,30 +33,26 @@ const LightSwitch = styled.div`
 
   &:before {
     display: block;
-    transform: ${({ lightsOn }) =>
-      lightsOn ? 'translate(-4px, -2px)' : 'translate(3px, 3px)'};
+    transform: ${({ dark }) =>
+      dark ? 'translate(-4px, -2px)' : 'translate(3px, 3px)'};
     content: '';
 
-    height: ${({ lightsOn }) => (lightsOn ? '12px' : '6px')};
-    width: ${({ lightsOn }) => (lightsOn ? '12px' : '6px')};
+    height: ${({ dark }) => (dark ? '12px' : '6px')};
+    width: ${({ dark }) => (dark ? '12px' : '6px')};
 
     border-radius: 50%;
-    background-color: ${({ lightsOn }) => (lightsOn ? '#525252' : '#fff')};
+    background-color: ${({ dark }) => (dark ? '#525252' : '#fff')};
 
     transition: all 0.2s ease-out;
   }
 `;
 
-const Switch = () => {
-  const [lightsOn, toggleOn] = useState(false);
-
-  return (
-    <Wrapper>
-      <Base onClick={() => toggleOn(!lightsOn)}>
-        <LightSwitch lightsOn={lightsOn} />
-      </Base>
-    </Wrapper>
-  );
-};
+const Switch = ({ dark, onClick }) => (
+  <Wrapper onClick={onClick}>
+    <Base>
+      <LightSwitch dark={dark} />
+    </Base>
+  </Wrapper>
+);
 
 export default Switch;

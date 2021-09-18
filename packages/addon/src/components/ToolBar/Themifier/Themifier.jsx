@@ -1,17 +1,17 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useGlobals } from '@storybook/api';
-
 import ToolbarContext from '../ToolbarContext';
+import ThemifierContext from './ThemifierContext';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const Themifier = () => {
   const { api } = useContext(ToolbarContext);
+  const [{ stylebook }] = useGlobals();
+  const [dark, setDark] = useState(true);
 
-  const [globals] = useGlobals();
-  const { stylebook } = globals;
-
-  const setTheme = (config) => {
-    const { themes, theme = themes[0], logo = {} } = config;
+  const setTheme = (changeState) => {
+    const { themes, logo = {} } = stylebook;
+    const currentTheme = dark ? themes[0] : themes[1];
 
     const {
       src: brandImage,
@@ -21,18 +21,23 @@ const Themifier = () => {
 
     api.setOptions({
       theme: {
-        ...theme,
+        ...currentTheme,
         ...(logo.src && { brandImage }),
         ...(logo.title && { brandTitle }),
         ...(logo.url && { brandUrl }),
       },
     });
-    // channel.emit('setGlobalTypes', config);
+
+    changeState && setDark(!dark);
   };
 
-  useEffect(() => stylebook && setTheme(stylebook));
+  useEffect(() => stylebook && setTheme());
 
-  return stylebook ? <ThemeSwitcher config={stylebook} /> : null;
+  return stylebook && stylebook.themes.length > 1 ? (
+    <ThemifierContext.Provider value={{ dark, setTheme }}>
+      <ThemeSwitcher />
+    </ThemifierContext.Provider>
+  ) : null;
 };
 
 export default Themifier;

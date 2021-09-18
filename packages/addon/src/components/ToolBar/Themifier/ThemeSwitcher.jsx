@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Switch from '../Switch';
+import ThemifierContext from './ThemifierContext';
 
-const ThemeSwitcher = ({ config: { themes } }) =>
-  themes.length > 1 ? <Switch /> : null;
+const ThemeSwitcher = () => {
+  const { dark, setTheme } = useContext(ThemifierContext);
+
+  return <Switch dark={dark} onClick={() => setTheme(true)} />;
+};
 
 export default ThemeSwitcher;
