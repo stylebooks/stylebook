@@ -2,6 +2,10 @@
 ![Last commit](https://img.shields.io/github/last-commit/stylebooks/stylebook.svg?style=flat-square&color=blueviolet)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square&color=ff69b4)](http://commitizen.github.io/cz-cli)
 
+<p align="center">
+  <img src="/stylebook.gif" />
+</p>
+
 ## Motivation
 
 Stylebook is a [Storybook](https://storybook.js.org/) addon that makes easier customizing you storybook!
