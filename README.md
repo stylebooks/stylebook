@@ -2,6 +2,10 @@
 ![Last commit](https://img.shields.io/github/last-commit/stylebooks/stylebook.svg?style=flat-square&color=blueviolet)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square&color=ff69b4)](http://commitizen.github.io/cz-cli)
 
+<p align="center">
+  <img src="/stylebook.gif" />
+</p>
+
 ## Motivation
 
 Stylebook is a [Storybook](https://storybook.js.org/) addon that makes easier customizing you storybook!
@@ -51,15 +55,16 @@ The addon config file is `preview.js` (inside .storybook folder too). This file 
 ```js
 import { addDecorator } from '@storybook/react';
 
-// import addon and the chosen theme packages from installed packages
+// import addon and the chosen themes from installed packages
 import withStyleBook from '@stylebook/addon';
-import PurpleRain from '@stylebook/themes';
+import { PurpleRain, DarkKnight } from '@stylebook/themes';
 
-// define the globalTypes addon decorator configuration
+// define globalTypes decorator configuration
 export const globalTypes = {
   stylebook: {
-    mode: 'single',
-    theme: PurpleRain,
+    defaultValue: {
+      themes: [DarkKnight, PurpleRain],
+    },
   },
 };
 
@@ -75,22 +80,11 @@ Stylebook brings cool features that you can enable! Check it out:
 
 ### Available Options
 
-| Name     | Type   | Required | Description                                                                    | Default  |
-| -------- | ------ | -------- | ------------------------------------------------------------------------------ | -------- |
-| `mode`   | String | false    | Defines how stylebook will handle one or multiple themes in storybook toolbar. | `single` |
-| `theme`  | Theme  | true     | The theme or themes you want to set.                                           | -        |
-| `splash` | Object | false    | Splash screen options.                                                         | -        |
-| `logo`   | Object | false    | Logo options for showing in the manager bar.                                   | -        |
-
-#### Mode
-
-Mode defines how Stylebook will handle one or multiple themes in Storybook's toolbar, there are 3 options available:
-
-| Name     | Description                                                                                                                 | Themes    |
-| -------- | --------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `single` | If you want to use only one theme for the doc, this is the option for you. This doesn't add options at storybook's toolbar. | 1         |
-| `toggle` | Enables a toggle button in toolbar that allows you to toggle between two themes (usually light and dark).                   | 2         |
-| `multi`  | Enable multi-theme dropdown in toolbar allowing the user choose one of them.                                                | 3 or more |
+| Name     | Type   | Required | Description                                  | Default |
+| -------- | ------ | -------- | -------------------------------------------- | ------- |
+| `themes` | Array  | true     | The theme or themes you want to set.         | -       |
+| `splash` | Object | false    | Splash screen options.                       | -       |
+| `logo`   | Object | false    | Logo options for showing in the manager bar. | -       |
 
 #### Theme
 
@@ -100,19 +94,17 @@ This one is simple, if you choose mode `single` you just have to pass your impor
 ```js
 import { addDecorator } from '@storybook/react';
 
-// import addon and the chosen theme packages from installed packages
 import withStyleBook from '@stylebook/addon';
 import { Theme1, Theme2 } from '@stylebook/themes';
 
-// define the globalTypes addon decorator configuration
 export const globalTypes = {
   stylebook: {
-    mode: 'toggle',
-    theme: [Theme1, Theme2],
+    defaultValue: {
+      themes: [Theme1, Theme2],
+    },
   },
 };
 
-// add the stylebook addon decorator
 addDecorator(withStyleBook);
 ```
 
@@ -130,16 +122,17 @@ See that sample below:
 ```js
 import { addDecorator } from '@storybook/react';
 
-import PurpleRain from '@stylebook/themes';
 import withStyleBook from '@stylebook/addon';
+import { Theme1, Theme2 } from '@stylebook/themes';
 
 export const globalTypes = {
   stylebook: {
-    mode: 'single',
-    theme: PurpleRain,
-    splash: {
-      src: 'https://placehold.it/350x150',
-      width: 200,
+    defaultValue: {
+      themes: [Theme1, Theme2],
+      splash: {
+        src: 'https://placehold.it/350x150',
+        width: 200,
+      },
     },
   },
 };
@@ -162,21 +155,18 @@ You can combine the `logo` option with the `splash` option:
 ```js
 import { addDecorator } from '@storybook/react';
 
-import PurpleRain from '@stylebook/themes';
 import withStyleBook from '@stylebook/addon';
+import { Theme1, Theme2 } from '@stylebook/themes';
 
 export const globalTypes = {
   stylebook: {
-    mode: 'single',
-    theme: PurpleRain,
-    logo: {
-      src: 'https://placehold.it/350x150',
-      title: 'stylebook',
-      url: '/',
-    },
-    splash: {
-      src: 'https://placehold.it/350x150',
-      width: 200,
+    defaultValue: {
+      themes: [Theme1, Theme2],
+      logo: {
+        src: 'https://placehold.it/350x150',
+        title: 'stylebook',
+        url: '/',
+      },
     },
   },
 };
