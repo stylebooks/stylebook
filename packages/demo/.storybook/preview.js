@@ -5,7 +5,16 @@ import withStyleBook from '@stylebook/addon';
 export const globalTypes = {
   stylebook: {
     defaultValue: {
-      themes: [DarkKnight],
+      themes: [Grayscale],
+      logo: {
+        src: './logo.png',
+        title: 'stylebook',
+        url: '/',
+      },
+      splash: {
+        src: './logo.png',
+        width: 200,
+      },
     },
   },
 };

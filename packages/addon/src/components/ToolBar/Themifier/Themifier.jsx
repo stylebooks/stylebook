@@ -13,8 +13,6 @@ const Themifier = () => {
     const { themes, logo = {} } = stylebook;
     const currentTheme = dark ? themes[0] : themes[1];
 
-    console.log(themes);
-
     const {
       src: brandImage,
       title: brandTitle = 'Storybook',

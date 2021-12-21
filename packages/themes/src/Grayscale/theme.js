@@ -5,18 +5,18 @@ import colors from './colors';
 const theme = {
   base: base.light,
 
-  colorSecondary: colors.darkest,
-  colorPrimary: colors.darker,
-  appBg: colors.darker,
+  colorSecondary: colors.darker,
+  colorPrimary: colors.darkest,
+  appBg: colors.lighter,
 
-  appContentBg: colors.lightest,
+  appContentBg: colors.white,
   barBg: colors.hue,
 
-  appBorderColor: colors.lighter,
-  textColor: colors.lightest,
-  textInverseColor: colors.lightest,
-  barTextColor: colors.lightest,
-  barSelectedColor: colors.lightest,
+  appBorderColor: colors.darker,
+  textColor: colors.darkest,
+  textInverseColor: colors.darkest,
+  barTextColor: colors.darkest,
+  barSelectedColor: colors.darkest,
   inputTextColor: colors.lightest,
 
   inputBg: colors.white,
@@ -24,7 +24,7 @@ const theme = {
 
   appBorderRadius: radii.medium,
 
-  fontBase: fonts.sansserif.rubik,
+  fontBase: fonts.sansserif.nunito,
   fontCode: fonts.monospace.firacode,
 
   inputBorderRadius: radii.medium,
