@@ -38,6 +38,9 @@ const GlobalStyles = ({ currentTheme }) => {
     }
     .os-host {
       ${transition};
+      span:empty {
+        ${transition};
+      }
     }
     .sb-show-main {
       background-color: ${appContentBg};
@@ -47,9 +50,9 @@ const GlobalStyles = ({ currentTheme }) => {
     .sidebar-item {
       ${transition};
       svg {
+        ${transition};
         path {
           fill: ${textColor};
-          ${transition};
         }
       }
     }
