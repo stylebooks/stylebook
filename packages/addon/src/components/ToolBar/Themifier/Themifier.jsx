@@ -21,17 +21,21 @@ const Themifier = () => {
       url: brandUrl = '/',
     } = logo;
 
-    api.setOptions({
-      theme: {
-        ...currentTheme,
-        ...(logo.src && { brandImage }),
-        ...(logo.title && { brandTitle }),
-        ...(logo.url && { brandUrl }),
-      },
-    });
+    const theme = {
+      ...currentTheme,
+      ...(logo.src && { brandImage }),
+      ...(logo.title && { brandTitle }),
+      ...(logo.url && { brandUrl }),
+    };
+
+    api.setOptions({ theme });
 
     channel.emit('setGlobalTypes', stylebook);
-    changeState && setDark(!dark);
+
+    if (changeState) {
+      setDark(!dark);
+      channel.emit('setTheme', dark ? themes[1] : themes[0]);
+    }
   };
 
   useEffect(() => stylebook && setTheme());

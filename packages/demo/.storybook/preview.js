@@ -5,7 +5,7 @@ import withStyleBook from '@stylebook/addon';
 export const globalTypes = {
   stylebook: {
     defaultValue: {
-      themes: [Grayscale],
+      themes: [DarkKnight, Grayscale],
       logo: {
         src: './logo.png',
         title: 'stylebook',
