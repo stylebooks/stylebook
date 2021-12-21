@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { addons } from '@storybook/addons';
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
-import { useGlobals } from '@storybook/api';
 
 import Logo from './Logo';
 
@@ -33,7 +32,6 @@ const Overlay = styled.div`
 const Splash = () => {
   const channel = addons.getChannel();
   const [config, setConfig] = useState({});
-  const [{ stylebook }] = useGlobals();
 
   const [splashRender, toggleSplashRender] = useState(true);
   const {
@@ -44,9 +42,9 @@ const Splash = () => {
 
   const { appBg, textColor } = theme || {};
 
-  channel.on('setGlobalTypes', (params) => setConfig(params));
-
-  console.log(config);
+  channel.on('setGlobalTypes', (params) => {
+    setConfig(params);
+  });
 
   return config && splashRender ? (
     <Overlay

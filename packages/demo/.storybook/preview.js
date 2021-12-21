@@ -12,7 +12,7 @@ export const globalTypes = {
         url: '/',
       },
       splash: {
-        src: './logo.png',
+        src: './logo-splash.png',
         width: 200,
       },
     },

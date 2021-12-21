@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useGlobals } from '@storybook/api';
+import { addons } from '@storybook/addons';
 import ToolbarContext from '../ToolbarContext';
 import ThemifierContext from './ThemifierContext';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const Themifier = () => {
+  const channel = addons.getChannel();
   const { api } = useContext(ToolbarContext);
   const [{ stylebook }] = useGlobals();
   const [dark, setDark] = useState(true);
@@ -28,6 +30,7 @@ const Themifier = () => {
       },
     });
 
+    channel.emit('setGlobalTypes', stylebook);
     changeState && setDark(!dark);
   };
 
