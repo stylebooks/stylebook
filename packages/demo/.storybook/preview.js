@@ -1,11 +1,20 @@
 import { addDecorator } from '@storybook/react';
-import { PurpleRain, DarkKnight } from '@stylebook/themes';
+import { PurpleRain, DarkKnight, Grayscale } from '@stylebook/themes';
 import withStyleBook from '@stylebook/addon';
 
 export const globalTypes = {
   stylebook: {
     defaultValue: {
-      themes: [DarkKnight, PurpleRain],
+      themes: [DarkKnight, Grayscale],
+      logo: {
+        src: './logo.png',
+        title: 'stylebook',
+        url: '/',
+      },
+      splash: {
+        src: './logo-splash.png',
+        width: 200,
+      },
     },
   },
 };

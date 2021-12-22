@@ -39,9 +39,12 @@ const Splash = () => {
     theme = themes[0],
     splash: { src, width } = {},
   } = config;
+
   const { appBg, textColor } = theme || {};
 
-  channel.on('setGlobalTypes', (params) => setConfig(params));
+  channel.on('setGlobalTypes', (params) => {
+    setConfig(params);
+  });
 
   return config && splashRender ? (
     <Overlay

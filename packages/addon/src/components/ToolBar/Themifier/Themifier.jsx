@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useGlobals } from '@storybook/api';
+import { addons } from '@storybook/addons';
 import ToolbarContext from '../ToolbarContext';
 import ThemifierContext from './ThemifierContext';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const Themifier = () => {
+  const channel = addons.getChannel();
   const { api } = useContext(ToolbarContext);
   const [{ stylebook }] = useGlobals();
   const [dark, setDark] = useState(true);
@@ -19,16 +21,21 @@ const Themifier = () => {
       url: brandUrl = '/',
     } = logo;
 
-    api.setOptions({
-      theme: {
-        ...currentTheme,
-        ...(logo.src && { brandImage }),
-        ...(logo.title && { brandTitle }),
-        ...(logo.url && { brandUrl }),
-      },
-    });
+    const theme = {
+      ...currentTheme,
+      ...(logo.src && { brandImage }),
+      ...(logo.title && { brandTitle }),
+      ...(logo.url && { brandUrl }),
+    };
 
-    changeState && setDark(!dark);
+    api.setOptions({ theme });
+
+    channel.emit('setGlobalTypes', stylebook);
+
+    if (changeState) {
+      setDark(!dark);
+      channel.emit('setTheme', dark ? themes[1] : themes[0]);
+    }
   };
 
   useEffect(() => stylebook && setTheme());
